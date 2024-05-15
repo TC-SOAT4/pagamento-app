@@ -1,7 +1,7 @@
-package infrastructure.pagamento.gateway;
+package com.fiap.pagamentoapp.infrastructure.pagamento.gateway;
 
-import application.pagamento.gateways.PagamentoGateway;
-import domain.pagamento.entity.Pagamento;
+import com.fiap.pagamentoapp.application.pagamento.gateways.PagamentoGateway;
+import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
 import org.springframework.stereotype.Component;
 
 @Component

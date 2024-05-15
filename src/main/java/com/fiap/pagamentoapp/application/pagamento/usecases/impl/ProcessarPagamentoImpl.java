@@ -1,10 +1,10 @@
-package application.pagamento.usecases.impl;
+package com.fiap.pagamentoapp.application.pagamento.usecases.impl;
 
-import application.pagamento.gateways.PagamentoGateway;
-import application.pagamento.usecases.ProcessarPagamento;
-import domain.pagamento.entity.Pagamento;
-import domain.pagamento.entity.StatusPagamento;
-import infrastructure.pagamento.repository.PagamentoRepository;
+import com.fiap.pagamentoapp.application.pagamento.gateways.PagamentoGateway;
+import com.fiap.pagamentoapp.application.pagamento.usecases.ProcessarPagamento;
+import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
+import com.fiap.pagamentoapp.domain.pagamento.entity.StatusPagamento;
+import com.fiap.pagamentoapp.infrastructure.pagamento.repository.PagamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

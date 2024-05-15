@@ -1,9 +1,9 @@
-package api.controller;
+package com.fiap.pagamentoapp.api.controller;
 
-import application.pagamento.usecases.ProcessarPagamento;
-import domain.pagamento.entity.Pagamento;
-import domain.pagamento.entity.StatusPagamento;
-import infrastructure.pagamento.repository.PagamentoRepository;
+import com.fiap.pagamentoapp.application.pagamento.usecases.ProcessarPagamento;
+import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
+import com.fiap.pagamentoapp.domain.pagamento.entity.StatusPagamento;
+import com.fiap.pagamentoapp.infrastructure.pagamento.repository.PagamentoRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

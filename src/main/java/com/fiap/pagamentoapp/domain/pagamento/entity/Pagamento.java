@@ -1,4 +1,4 @@
-package domain.pagamento.entity;
+package com.fiap.pagamentoapp.domain.pagamento.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
