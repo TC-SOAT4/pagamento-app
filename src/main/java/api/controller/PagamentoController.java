@@ -4,6 +4,8 @@ import application.pagamento.usecases.ProcessarPagamento;
 import domain.pagamento.entity.Pagamento;
 import domain.pagamento.entity.StatusPagamento;
 import infrastructure.pagamento.repository.PagamentoRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Tag(name = "Pagamentos")
 @RestController
 @RequestMapping("/pagamentos")
 public class PagamentoController {
@@ -24,6 +27,7 @@ public class PagamentoController {
     private PagamentoRepository pagamentoRepository;
 
     @PostMapping
+    @Operation(summary = "Processar pagamento", description = "Processa um pagamento")
     public ResponseEntity<Pagamento> processar(@RequestBody Pagamento pagamento){
         Pagamento resultado = processarPagamento.executar(pagamento);
         if(resultado.getStatusPagamento() == StatusPagamento.RECUSADO){
@@ -33,11 +37,13 @@ public class PagamentoController {
     }
 
     @GetMapping
+    @Operation(summary = "Listar pagamentos")
     public ResponseEntity<List<Pagamento>> listarTodos(){
         return criarResposta(pagamentoRepository.findAll());
     }
 
-    @GetMapping("/id")
+    @GetMapping("/{id}")
+    @Operation(summary = "Consultar por id")
     public ResponseEntity<Pagamento> obterPorId(@PathVariable String id){
        Optional<Pagamento> pagamento = pagamentoRepository.findById(id);
        return pagamento.map(ResponseEntity::ok)
