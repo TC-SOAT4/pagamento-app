@@ -1,4 +1,4 @@
-package com.fiap.pagamentoapp.api.controller;
+package com.fiap.pagamentoapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,7 @@ public class SpringDocConfigurations {
                 .info(new Info()
                         .title("Tech Challenge")
                         .description(
-                                "Trabalho final FIAP/Alura")
+                                "Trabalho final FIAP/Alura - API de pagamentos")
                         .contact(new Contact()
                                 .name("Time")));
     }

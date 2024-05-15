@@ -4,6 +4,6 @@ import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
 
 public interface PagamentoGateway {
 
-    boolean processarPagamento(Pagamento pagamento);
+    boolean aprovar(Pagamento pagamento);
 
 }
