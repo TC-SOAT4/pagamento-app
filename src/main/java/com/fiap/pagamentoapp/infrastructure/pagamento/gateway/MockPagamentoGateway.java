@@ -1,20 +1,18 @@
 package com.fiap.pagamentoapp.infrastructure.pagamento.gateway;
 
-import com.fiap.pagamentoapp.application.pagamento.gateways.PagamentoGateway;
+import com.fiap.pagamentoapp.application.pagamento.gateways.PagamentoAprovacaoGateway;
 import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Component
-public class MockPagamentoGateway implements PagamentoGateway {
+import java.time.LocalDateTime;
 
-    public static final Logger logger= LoggerFactory.getLogger(MockPagamentoGateway.class);
+@Component
+public class MockPagamentoGateway implements PagamentoAprovacaoGateway {
 
     @Override
     public boolean aprovar(Pagamento pagamento){
         boolean aprovacao = Math.random() < 0.9; //chance de sucesso.
-        logger.trace("Resultado da aprovação: {}", aprovacao);
+        pagamento.setData(LocalDateTime.now());
         return aprovacao;
     }
 
