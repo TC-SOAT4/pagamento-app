@@ -27,7 +27,7 @@ public class ProcessarPagamentoUseCaseImpl implements ProcessarPagamentoUseCase 
             return pagamentoGateway.salvar(pagamento);
         }
         pagamento.setStatusPagamento(StatusPagamento.RECUSADO);
-        return pagamento;
+        return pagamentoGateway.salvar(pagamento);
     }
 }
 

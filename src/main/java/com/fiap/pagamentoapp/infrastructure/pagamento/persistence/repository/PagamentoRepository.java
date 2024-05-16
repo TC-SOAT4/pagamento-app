@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 public interface PagamentoRepository extends MongoRepository<PagamentoDocument, String>{
 
@@ -15,7 +16,7 @@ public interface PagamentoRepository extends MongoRepository<PagamentoDocument, 
     List<PagamentoDocument> findByIdPedido(Integer pedido);
 
     @Query("{ 'id' : ?0 }")
-    PagamentoDocument findByIdPagamento(String Id);
+    Optional<PagamentoDocument> findByIdPagamento(String Id);
 
     @Query("{'data' : {$gte: ?0, $lte: ?1 } }")
     List<PagamentoDocument> findByDataBetween(LocalDateTime startDate, LocalDateTime endDate);

@@ -30,14 +30,4 @@ public class PagamentoDocument {
         this.statusPagamento = pagamento.getStatusPagamento();
         this.data = pagamento.getData();
     }
-
-    public Pagamento toPagamento() {
-        Pagamento pagamento = new Pagamento();
-        pagamento.setId(this.id);
-        pagamento.setIdPedido(this.idPedido);
-        pagamento.setValor(this.valor);
-        pagamento.setStatusPagamento(StatusPagamento.valueOf(String.valueOf(this.statusPagamento)));
-        pagamento.setData(this.data);
-        return pagamento;
-    }
 }

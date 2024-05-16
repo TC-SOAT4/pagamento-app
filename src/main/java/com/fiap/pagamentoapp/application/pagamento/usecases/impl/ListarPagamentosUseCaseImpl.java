@@ -5,10 +5,13 @@ import com.fiap.pagamentoapp.application.pagamento.usecases.ListarPagamentosUseC
 import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
 import com.fiap.pagamentoapp.domain.pagamento.entity.StatusPagamento;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
+@Service
 public class ListarPagamentosUseCaseImpl implements ListarPagamentosUseCase {
     @Autowired
     private PagamentoGateway pagamentoGateway;
@@ -29,7 +32,7 @@ public class ListarPagamentosUseCaseImpl implements ListarPagamentosUseCase {
     }
 
     @Override
-    public Pagamento buscarPorIdPagamento(String idPagamento) {
+    public Optional<Pagamento> buscarPorIdPagamento(String idPagamento) {
         return pagamentoGateway.buscarPorIdPagamento(idPagamento);
     }
 
