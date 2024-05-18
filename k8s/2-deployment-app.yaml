@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-pagamento-deployment
+  labels:
+    app: app-pagamento-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: app-pagamento-pod
+  template:
+    metadata:
+      name: app-pagamento-pod
+      labels:
+        app: app-pagamento-pod
+    spec:
+      containers:
+        - name: pagamento-app
+          image: thiagobsn/pagamento-app
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-pagamento-app
+                  key: SPRING_DATA_MONGODB_URI
+            - name: SPRING_DATA_MONGODB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secret-pagamento-db
+                  key: username
+            - name: SPRING_DATA_MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secret-pagamento-db
+                  key: password
+          livenessProbe:
+            httpGet:
+              path: /pagamento-app/actuator/health
+              port: 8080
+            initialDelaySeconds: 80
+            periodSeconds: 3
+            failureThreshold: 3
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 1000m
+            requests:
+              cpu: 500m
+              memory: 256Mi
+      
