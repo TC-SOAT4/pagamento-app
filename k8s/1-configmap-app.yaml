@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: configmap-pagamento-app
 data:
-  SPRING_DATA_MONGODB_URI: mongodb+srv://lachonete-mongodb-clust.ggxoczv.mongodb.net/lachonete-mongodb-cluster?retryWrites=true&w=majority&appName=lachonete-mongodb-cluster
+  SPRING_DATA_MONGODB_URI: mongodb+srv://root:root@lachonete-mongodb-clust.ggxoczv.mongodb.net/lachonete-mongodb-cluster
