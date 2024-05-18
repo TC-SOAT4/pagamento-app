@@ -19,6 +19,13 @@
   		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<sonar.projectKey>TC-SOAT4_pagamento-app</sonar.projectKey>
 	</properties>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/TC-SOAT4/pagamento-app</url>
+		</repository>
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
