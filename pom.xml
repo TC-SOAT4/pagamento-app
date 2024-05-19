@@ -15,8 +15,18 @@
 	<description>Aplicação de pagamento da lanchonete</description>
 	<properties>
 		<java.version>17</java.version>
+		<sonar.organization>tc-soat4</sonar.organization>
+  	<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.projectKey>TC-SOAT4_pagamento-app</sonar.projectKey>
 		<spring-restdocs.version>3.0.1</spring-restdocs.version> <!-- Atualizado -->
 	</properties>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/TC-SOAT4/pagamento-app</url>
+		</repository>
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

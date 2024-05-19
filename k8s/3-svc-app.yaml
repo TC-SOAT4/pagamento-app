@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-pagamento-app
+spec:
+  selector:
+    app: app-pagamento-pod
+  #type: NodePort
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+      nodePort: 30082
+
+# Alterar o type para LoadBalancer para rodar no eks
+# Alterar o type para NodePort para rodar no locahost
+  
