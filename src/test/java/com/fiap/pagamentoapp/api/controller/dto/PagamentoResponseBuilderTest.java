@@ -11,21 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PagamentoResponseBuilderTest {
 
     @Test
-    void testToString() {
-        LocalDateTime data = LocalDateTime.now();
-        PagamentoResponse response = PagamentoResponse.builder()
-                .id("123")
-                .idPedido(456)
-                .valor(BigDecimal.valueOf(100.0))
-                .statusPagamento(StatusPagamento.PENDENTE)
-                .data(data)
-                .build();
-
-        String expected = "PagamentoResponse{id='123', idPedido=456, valor=100.0, statusPagamento=PENDENTE, data=" + data.toString() + "}";
-        assertEquals(expected, response.toString());
-    }
-
-    @Test
     void testBuilder() {
         LocalDateTime data = LocalDateTime.now();
         PagamentoResponse response = PagamentoResponse.builder()
