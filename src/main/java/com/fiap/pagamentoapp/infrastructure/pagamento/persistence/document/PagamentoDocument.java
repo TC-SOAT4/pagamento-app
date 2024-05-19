@@ -2,16 +2,14 @@ package com.fiap.pagamentoapp.infrastructure.pagamento.persistence.document;
 
 import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
 import com.fiap.pagamentoapp.domain.pagamento.entity.StatusPagamento;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,5 +27,14 @@ public class PagamentoDocument {
         this.valor = pagamento.getValor();
         this.statusPagamento = pagamento.getStatusPagamento();
         this.data = pagamento.getData();
+    }
+
+    @Override
+    public String toString() {
+        return "PagamentoDocument(id=" + id +
+                ", idPedido=" + idPedido +
+                ", valor=" + valor +
+                ", statusPagamento=" + statusPagamento +
+                ", data=" + data + ")";
     }
 }
