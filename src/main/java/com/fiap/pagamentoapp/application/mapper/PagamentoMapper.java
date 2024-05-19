@@ -1,6 +1,5 @@
 package com.fiap.pagamentoapp.application.mapper;
 
-import com.fiap.pagamentoapp.api.controller.dto.ListarPagamentoResponse;
 import com.fiap.pagamentoapp.api.controller.dto.PagamentoResponse;
 import com.fiap.pagamentoapp.api.controller.dto.ProcessarPagamentoRequest;
 import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PagamentoMapper {
-
     //// De/para DTO
     public static Pagamento processarPagamentoRequestParaPagamento(ProcessarPagamentoRequest request) {
         Pagamento pagamento = new Pagamento();
@@ -30,12 +28,6 @@ public class PagamentoMapper {
         return response;
     }
 
-    public static ListarPagamentoResponse pagamentoParaListarPagamentoResponse(Pagamento pagamento) {
-        return new ListarPagamentoResponse(
-                pagamento.getId(),
-                pagamento.getIdPedido()
-        );
-    }
     //// De/Para Document
     public static Pagamento pagamentoDocumentParaPagamento(PagamentoDocument document) {
         Pagamento pagamento = new Pagamento();
@@ -46,6 +38,4 @@ public class PagamentoMapper {
         pagamento.setData(document.getData());
         return pagamento;
     }
-
 }
-
