@@ -23,7 +23,7 @@ class SpringDocConfigurationsTest {
         assertNotNull(openAPI);
         Info info = openAPI.getInfo();
         assertNotNull(info);
-        assertEquals("Tech Challenge", info.getTitle());
+        assertEquals("Tech Challenge - Pagamento API", info.getTitle());
         assertEquals("Trabalho final FIAP/Alura - API de pagamentos", info.getDescription());
         Contact contact = info.getContact();
         assertNotNull(contact);
