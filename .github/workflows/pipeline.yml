@@ -6,7 +6,7 @@ name: Maven Package
 on:
   push:
     branches:
-      - k8s
+      - main
 
 jobs:
 
