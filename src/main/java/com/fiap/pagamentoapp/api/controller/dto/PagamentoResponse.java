@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
-@EqualsAndHashCode
+@EqualsAndHashCode(of = {"id", "idPedido"})
 @AllArgsConstructor
 @NoArgsConstructor
 public class PagamentoResponse {
@@ -20,14 +20,4 @@ public class PagamentoResponse {
     private StatusPagamento statusPagamento;
     private LocalDateTime data;
 
-    @Override
-    public String toString() {
-        return "PagamentoResponse{" +
-                "id='" + id + '\'' +
-                ", idPedido=" + idPedido +
-                ", valor=" + valor +
-                ", statusPagamento=" + statusPagamento +
-                ", data=" + data +
-                '}';
-    }
 }

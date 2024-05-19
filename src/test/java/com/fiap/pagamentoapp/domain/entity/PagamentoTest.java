@@ -25,5 +25,6 @@ class PagamentoTest {
         assertEquals(new BigDecimal("100.00"), pagamento.getValor());
         assertEquals(StatusPagamento.PENDENTE, pagamento.getStatusPagamento());
         assertEquals(LocalDateTime.now().getDayOfMonth(), pagamento.getData().getDayOfMonth());
+        
     }
 }
