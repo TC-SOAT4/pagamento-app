@@ -5,6 +5,7 @@ import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -26,7 +27,8 @@ public class MockPagamentoGateway implements PagamentoAprovacaoGateway {
 
     @Override
     public boolean aprovar(Pagamento pagamento){
-        boolean aprovacao = aprovacaoForcada || Math.random() < 0.1; //chance de sucesso.
+           SecureRandom secureRandom = new SecureRandom();
+        boolean aprovacao = aprovacaoForcada || secureRandom.nextDouble() < 0.1; //chance de sucesso.
         pagamento.setId(UUID.randomUUID().toString());
         pagamento.setData(LocalDateTime.now());
         return aprovacao;
