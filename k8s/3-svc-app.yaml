@@ -5,8 +5,8 @@ metadata:
 spec:
   selector:
     app: app-pagamento-pod
-  #type: NodePort
-  type: LoadBalancer
+  type: NodePort
+  #type: LoadBalancer
   ports:
     - port: 80
       targetPort: 8080

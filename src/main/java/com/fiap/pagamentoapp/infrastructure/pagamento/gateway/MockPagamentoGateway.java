@@ -28,7 +28,7 @@ public class MockPagamentoGateway implements PagamentoAprovacaoGateway {
     @Override
     public boolean aprovar(Pagamento pagamento){
            SecureRandom secureRandom = new SecureRandom();
-        boolean aprovacao = aprovacaoForcada || secureRandom.nextDouble() < 0.1; //chance de sucesso.
+        boolean aprovacao = aprovacaoForcada || secureRandom.nextDouble() < 1.0; //chance de sucesso.
         pagamento.setId(UUID.randomUUID().toString());
         pagamento.setData(LocalDateTime.now());
         return aprovacao;
