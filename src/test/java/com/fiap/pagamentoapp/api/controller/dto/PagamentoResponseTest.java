@@ -17,8 +17,9 @@ class PagamentoResponseTest {
 
     @BeforeEach
     void setUp() {
-        response1 = new PagamentoResponse("123", 456, new BigDecimal("100.00"), StatusPagamento.PENDENTE, LocalDateTime.now());
-        response2 = new PagamentoResponse("123", 456, new BigDecimal("100.00"), StatusPagamento.PENDENTE, LocalDateTime.now());
+        var data = LocalDateTime.now();
+        response1 = new PagamentoResponse("123", 456, new BigDecimal("100.00"), StatusPagamento.PENDENTE, data);
+        response2 = new PagamentoResponse("123", 456, new BigDecimal("100.00"), StatusPagamento.PENDENTE, data);
     }
 
     @Test
