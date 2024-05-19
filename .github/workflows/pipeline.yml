@@ -139,39 +139,39 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/pagamento-app:latest
   
-  # eks:
+  eks:
     
-  #   name: EKS - Deployment
-  #   runs-on: ubuntu-latest
-  #   needs: docker
+    name: EKS - Deployment
+    runs-on: ubuntu-latest
+    needs: docker
 
-  #   steps:
+    steps:
 
-  #   - name: Set short git commit SHA
-  #     id: commit
-  #     uses: prompt/actions-commit-hash@v2
+    - name: Set short git commit SHA
+      id: commit
+      uses: prompt/actions-commit-hash@v2
 
-  #   - name: Check out code
-  #     uses: actions/checkout@v2
+    - name: Check out code
+      uses: actions/checkout@v2
     
-  #   - name: Configure AWS credentials
-  #     uses: aws-actions/configure-aws-credentials@v1
-  #     with:
-  #       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #       aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-  #       aws-region: us-east-1
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+        aws-region: us-east-1
 
-  #   - name: Update kube config
-  #     run: aws eks update-kubeconfig --name tr-lanchonete-eks-e70uamhK --region us-east-1
+    - name: Update kube config
+      run: aws eks update-kubeconfig --name tr-lanchonete-eks-e70uamhK --region us-east-1
 
-  #   - name: Deploy to EKS
-  #     env:
-  #       ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
-  #       IMAGE_TAG: ${{ steps.commit.outputs.short }}
-  #     run: |
-  #        kubectl apply -f "k8s/1-configmap-app.yaml" && \
-  #        kubectl apply -f "k8s/2-deployment-app.yaml" && \
-  #        kubectl apply -f "k8s/3-svc-app.yaml"
+    - name: Deploy to EKS
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}        
+        IMAGE_TAG: ${{ steps.commit.outputs.short }}
+      run: |
+         kubectl apply -f "k8s/1-configmap-app.yaml" && \
+         kubectl apply -f "k8s/2-deployment-app.yaml" && \
+         kubectl apply -f "k8s/3-svc-app.yaml"
 
 

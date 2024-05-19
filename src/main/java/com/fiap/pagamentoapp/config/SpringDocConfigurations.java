@@ -14,7 +14,7 @@ public class SpringDocConfigurations {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Tech Challenge")
+                        .title("Tech Challenge - Pagamento API")
                         .description(
                                 "Trabalho final FIAP/Alura - API de pagamentos")
                         .contact(new Contact()
