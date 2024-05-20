@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "Tech Challenge - Pagamento API",
+    "_postman_id": "ae314228-7227-40a9-abb6-ef115fddc6c0",
+    "description": "Trabalho final FIAP/Alura - API de pagamentos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "pagamento-controller",
+      "description": "",
+      "item": [
+        {
+          "id": "8b39a089-dbbf-4b7c-a654-d8678fb487b1",
+          "name": "processar",
+          "request": {
+            "url": {
+              "protocol": "http",
+              "host": "ab7d59acf6470481dac365713d4ea9e8-1008832294.us-east-1.elb.amazonaws.com",
+              "path": [
+                "pagamento-app",
+                "pagamentos"
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "",
+                "disabled": false
+              },
+              {
+                "key": "Accept",
+                "value": "*/*",
+                "disabled": false
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idPedido\": 91,\r\n  \"valor\": 186.440395699553\r\n}",
+              "disabled": false
+            },
+            "description": ""
+          },
+          "response": [
+            {
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "disabled": false
+                }
+              ],
+              "body": "{\r\n  \"id\": \"id35\",\r\n  \"idPedido\": 124,\r\n  \"valor\": 254.046717127341,\r\n  \"statusPagamento\": \"PENDENTE\",\r\n  \"data\": \"2024-07-17T01:13:52.2437418Z\"\r\n}",
+              "status": "OK",
+              "code": 200,
+              "name": "Response_200",
+              "id": "b9c251d6-2d79-42a4-85af-1c3793d13cd3"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [],
+  "auth": {
+    "type": "noauth"
+  }
+}
