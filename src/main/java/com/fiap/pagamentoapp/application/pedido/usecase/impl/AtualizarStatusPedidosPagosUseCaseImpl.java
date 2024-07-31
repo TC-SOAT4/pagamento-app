@@ -24,7 +24,7 @@ public class AtualizarStatusPedidosPagosUseCaseImpl implements AtualizarStatusPe
 
     Logger logger = LoggerFactory.getLogger(AtualizarStatusPedidosPagosUseCaseImpl.class);
 
-    @Value("${aws.sqs.status.pedido.uri}")
+    @Value("${aws.sqs.out.status.pedido.uri}")
     private String endpointStatusPedido;
 
     @Override
@@ -32,6 +32,7 @@ public class AtualizarStatusPedidosPagosUseCaseImpl implements AtualizarStatusPe
         try {
             String json = objectMapper.writeValueAsString(pagamento);
             sqsTemplate.send(endpointStatusPedido, MessageBuilder.withPayload(json).build());
+            logger.info("Pagamento confirmado. Atualizado status do pedodo: {}", pagamento);
         } catch (JsonProcessingException e) {
             logger.error(e.getMessage(), e);
         }

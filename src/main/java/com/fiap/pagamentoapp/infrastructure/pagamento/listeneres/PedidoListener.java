@@ -21,7 +21,7 @@ public class PedidoListener {
 
     private final ProcessarPagamentoUseCase processarPagamentoUseCase;
 
-    @SqsListener("${aws.sqs.lanchonete.pagamento.queue.name}")
+    @SqsListener("${aws.sqs.in.lanchonete.pagamento.queue.name}")
     public void receiveMessage(String json) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         ProcessarPagamentoRequest processarPagamentoRequest = objectMapper.readValue(json,
