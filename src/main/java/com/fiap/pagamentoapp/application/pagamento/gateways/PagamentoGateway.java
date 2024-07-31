@@ -6,4 +6,6 @@ public interface PagamentoGateway {
 
      Pagamento salvar(Pagamento pagamento);
 
+     Pagamento buscar(String id);
+
 }
