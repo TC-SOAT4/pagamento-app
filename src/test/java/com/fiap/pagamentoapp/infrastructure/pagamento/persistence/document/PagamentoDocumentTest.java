@@ -1,12 +1,12 @@
 package com.fiap.pagamentoapp.infrastructure.pagamento.persistence.document;
 
-import com.fiap.pagamentoapp.domain.pagamento.entity.StatusPagamento;
-import com.fiap.pagamentoapp.infrastructure.pagamento.persistence.document.PagamentoDocument;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import com.fiap.pagamentoapp.domain.pagamento.entity.StatusPagamento;
 
 class PagamentoDocumentTest {
 
