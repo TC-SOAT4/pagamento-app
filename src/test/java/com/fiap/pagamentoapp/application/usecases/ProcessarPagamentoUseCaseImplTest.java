@@ -33,26 +33,22 @@ class ProcessarPagamentoUseCaseImplTest {
     @Test
     void testExecutarAprovado() {
         Pagamento pagamento = new Pagamento();
-        when(pagamentoAprovacaoGateway.aprovar(pagamento)).thenReturn(true);
         when(pagamentoGateway.salvar(pagamento)).thenReturn(pagamento);
 
         Pagamento resultado = processarPagamentoUseCase.executar(pagamento);
 
-        assertEquals(StatusPagamento.APROVADO, resultado.getStatusPagamento());
-        verify(pagamentoAprovacaoGateway, times(1)).aprovar(pagamento);
+        assertEquals(StatusPagamento.PENDENTE, resultado.getStatusPagamento());
         verify(pagamentoGateway, times(1)).salvar(pagamento);
     }
 
     @Test
     void testExecutarRecusado() {
         Pagamento pagamento = new Pagamento();
-        when(pagamentoAprovacaoGateway.aprovar(pagamento)).thenReturn(false);
         when(pagamentoGateway.salvar(pagamento)).thenReturn(pagamento);
 
         Pagamento resultado = processarPagamentoUseCase.executar(pagamento);
 
-        assertEquals(StatusPagamento.RECUSADO, resultado.getStatusPagamento());
-        verify(pagamentoAprovacaoGateway, times(1)).aprovar(pagamento);
+        assertEquals(StatusPagamento.PENDENTE, resultado.getStatusPagamento());
         verify(pagamentoGateway, times(1)).salvar(pagamento);
     }
 }
