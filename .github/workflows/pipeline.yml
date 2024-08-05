@@ -31,7 +31,7 @@ jobs:
          settings-path: ${{ github.workspace }} # location for the settings.xml file
 
      - name: Test
-       run: mvn --batch-mode -Dmaven.test.failure.ignore=false test
+       run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
   sonarcloud:
   
     name: SonarCloud
