@@ -163,7 +163,7 @@ jobs:
         aws-region: us-east-1
 
     - name: Update kube config
-      run: aws eks update-kubeconfig --name tr-lanchonete-eks-e70uamhK --region us-east-1
+      run: aws eks update-kubeconfig --name tr-lanchonete-eks-H1qmh6oQ --region us-east-1
 
     - name: Deploy to EKS
       env:
@@ -171,6 +171,7 @@ jobs:
         IMAGE_TAG: ${{ steps.commit.outputs.short }}
       run: |
          kubectl apply -f "k8s/1-configmap-app.yaml" && \
+         kubectl delete -f "k8s/2-deployment-app.yaml" && \
          kubectl apply -f "k8s/2-deployment-app.yaml" && \
          kubectl apply -f "k8s/3-svc-app.yaml"
 
