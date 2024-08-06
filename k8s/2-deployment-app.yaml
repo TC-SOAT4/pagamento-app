@@ -26,6 +26,16 @@ spec:
                 configMapKeyRef:
                   name: configmap-pagamento-app
                   key: SPRING_DATA_MONGODB_URI
+            - name: AWS_SQS_IN_LANCHONETE_PAGAMENTO_QUEUE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-pagamento-app
+                  key: AWS_SQS_IN_LANCHONETE_PAGAMENTO_QUEUE_NAME
+            - name: AWS_SQS_OUT_PEDIDO_STATUS_URI
+              valueFrom:
+                configMapKeyRef:
+                  name: configmap-pagamento-app
+                  key: AWS_SQS_OUT_PEDIDO_STATUS_URI
             - name: SPRING_DATA_MONGODB_USERNAME
               valueFrom:
                 secretKeyRef:

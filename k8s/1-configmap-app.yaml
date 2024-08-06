@@ -4,3 +4,5 @@ metadata:
   name: configmap-pagamento-app
 data:
   SPRING_DATA_MONGODB_URI: mongodb+srv://root:root@lachonete-mongodb-clust.ggxoczv.mongodb.net/lachonete-mongodb-cluster
+  AWS_SQS_IN_LANCHONETE_PAGAMENTO_QUEUE_NAME: lanchonete-pagamento-queue.fifo
+  AWS_SQS_OUT_PEDIDO_STATUS_URI: https://sqs.us-east-1.amazonaws.com/786426553713/lanchonete-pedido-status-queue.fifo
