@@ -6,8 +6,8 @@ Sistema desenvolvido como forma de avalição da terceira fase do curso de Pós 
 
 **Sobre o projeto**
 * Spring-boot 3 com Java 17
-* Banco de dados MariaDD
-* Path: /producao-app
+* Banco de dados MongoDB
+* Path: /pagamento-app
 * Porta: 8080
 
 **Requisitos para executar**
@@ -64,6 +64,22 @@ k8s
 	- 1 HorizontalPodAutoscaler
 
 ------------
+
+##### SQS
+
+- Necessário criar as filas a seguir e configurar no `application.properties`:
+	- lanchonete-pagamento-queue.fifo
+	- lanchonete-pedido-status-queue.fifo
+   
+- application.properties
+  ```
+   aws.sqs.in.lanchonete.pagamento.queue.name=lanchonete-pagamento-queue.fifo
+   aws.sqs.out.pedido.status.uri=https://exemplo/lanchonete-pedido-status-queue.fifo
+  ```
+##### Owasp Zap
+
+- Relatório se encontra disponível dentro da pasta `owasp-zap` na raiz do projeto.
+- O projeto não apresentou nenhuma vulnerabilidade altas
 
 
 
