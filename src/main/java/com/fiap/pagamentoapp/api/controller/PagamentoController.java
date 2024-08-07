@@ -15,7 +15,6 @@ import com.fiap.pagamentoapp.application.pagamento.usecases.AtualizarStatusPagam
 import com.fiap.pagamentoapp.application.pagamento.usecases.ConfirmarPagamentoUseCase;
 import com.fiap.pagamentoapp.application.pagamento.usecases.ProcessarPagamentoUseCase;
 import com.fiap.pagamentoapp.domain.pagamento.entity.Pagamento;
-import com.fiap.pagamentoapp.domain.pagamento.entity.StatusPagamento;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
@@ -41,11 +40,7 @@ public class PagamentoController {
         PagamentoResponse response = PagamentoMapper.pagamentoParaPagamentoResponse(resultado); // Chamando o método
                                                                                                 // estático
 
-        if (resultado.getStatusPagamento() == StatusPagamento.APROVADO) {
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST); // Alterado para BAD_REQUEST
-        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/{idPagamento}")
